@@ -205,7 +205,7 @@ class RowSpec(object):
         like a dict or SQLAlchemy row, apply each of the ColumnSpecs
         to that object in turn, and return a corresponding TableRow
         object."""
-        output = []
+        output = list()
         for column in self.columnspecs:
             value = rowobject
             for attribute in column.attributes:
@@ -374,7 +374,7 @@ class PDFTable(TableBase):
 
         # Finally, build the list of elements that the table will
         # comprise
-        components = []
+        components = list()
         if self.title:
             components.append(Paragraph(self.title, self.titlestyle))
         if self.explanation:
@@ -523,7 +523,7 @@ class HTMLTable(TableBase):
     def _rendercell(self, cell):
         """Render data as a td"""
 
-        cssclasses = []
+        cssclasses = list()
         if cell.style.bold:
             cssclasses.append(self.cssdefs['bold'])
         if cell.style.money:
@@ -541,7 +541,7 @@ class HTMLTable(TableBase):
 
     def render(self, rowsets):
         """Return the data as a string of HTML"""
-        lines = []
+        lines = list()
 
         # Display the title, if given
         if self.title:
